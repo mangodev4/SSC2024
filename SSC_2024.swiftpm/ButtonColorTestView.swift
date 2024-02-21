@@ -24,6 +24,8 @@ struct ButtonColorTestView: View {
         ButtonData(text: "Tail", color: .black, isClicked: false),
         
     ]
+
+    
     
     @State private var showNextPageButton: Bool = false
     @State private var isNavigationActive: Bool = false
@@ -31,7 +33,7 @@ struct ButtonColorTestView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color.yellow
+                Color.green
                     .edgesIgnoringSafeArea(.all)
                 VStack(spacing: 20) {
                     ForEach(0..<buttonDataArray.count, id: \.self) { index in
