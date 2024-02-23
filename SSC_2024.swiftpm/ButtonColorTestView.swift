@@ -24,45 +24,52 @@ struct ButtonColorTestView: View {
         ButtonData(text: "Tail", color: .black, isClicked: false),
         
     ]
-
-    
     
     @State private var showNextPageButton: Bool = false
-    @State private var isNavigationActive: Bool = false
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color.green
-                    .edgesIgnoringSafeArea(.all)
-                VStack(spacing: 20) {
+        ZStack {
+            Color.yellow
+                .ignoresSafeArea()
+            
+            VStack{
+                VStack(spacing: 15) {
                     ForEach(0..<buttonDataArray.count, id: \.self) { index in
                         Button(action: {
                             buttonTapped(index)
                         }) {
                             Text(buttonDataArray[index].text)
                                 .foregroundColor(.white)
-                                .frame(width: 80, height: 20)
+                                .frame(width: 80, height: 13)
                                 .padding()
                                 .background(buttonDataArray[index].color)
                                 .cornerRadius(22)
                         }
                     }
                 }
-                .padding(.top, 80)
+                .padding(.top, 150)
                 .padding(.trailing, 210) // Optional padding for better visual appearance
                 
+                
                 Spacer() // Add spacer to push buttons to the top
+                
             }
-            .navigationBarTitle("")
-            .background(
-                NavigationLink(
-                    destination: MissionClearView(),
-                    isActive: $isNavigationActive
-                ) {
-                    EmptyView()
+            
+            if showNextPageButton {
+                Button(action: {
+                    // Action for the next page button
+                }) {
+                    Text("Next Page")
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.red)
+                        .cornerRadius(22)
                 }
-            )
+                //            .buttonStyle(.borderedProminent)
+                .padding(.horizontal, 10)
+                .padding(.top, 700)
+            }
         }
     }
     
@@ -76,7 +83,7 @@ struct ButtonColorTestView: View {
             // Check if all buttons are clicked
             let allClicked = updatedButtonDataArray.allSatisfy { $0.isClicked }
             if allClicked {
-                isNavigationActive = true
+                showNextPageButton = true
             }
         }
     }

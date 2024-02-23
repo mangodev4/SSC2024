@@ -9,7 +9,12 @@ import SwiftUI
 
 struct MissionClearView: View {
     var body: some View {
-        Text("Mission Clear!")
+        Text("Next Page")
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.red)
+                    .cornerRadius(22)
     }
 }
 
