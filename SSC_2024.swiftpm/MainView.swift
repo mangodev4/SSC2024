@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ButtonColorTestView: View {
+struct MainView: View {
     struct ButtonData {
         var text: String
         var color: Color
@@ -31,7 +31,7 @@ struct ButtonColorTestView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color.yellow
+                Color.white
                     .edgesIgnoringSafeArea(.all)
                 VStack(spacing: 20) {
                     ForEach(0..<buttonDataArray.count, id: \.self) { index in
@@ -81,5 +81,5 @@ struct ButtonColorTestView: View {
 }
 
 #Preview {
-    ButtonColorTestView()
+    MainView()
 }

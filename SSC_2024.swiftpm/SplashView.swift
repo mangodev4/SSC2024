@@ -12,7 +12,12 @@ struct SplashView: View {
         VStack {
             Image("Splash_AppName")
                 .resizable()
+                .scaledToFit()
+                .frame(width: 250)
+                .padding(40)
+        
             Text("SplashView Test")
+                .foregroundStyle(.orange)
         }
     }
 }
@@ -20,3 +25,5 @@ struct SplashView: View {
 #Preview {
     SplashView()
 }
+
+
